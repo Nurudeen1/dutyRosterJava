@@ -12,3 +12,6 @@
         <li>Logger to log whether emails were successful or failed</li>
         <li>Scheduler to run the app periodically - Alternatively check how to run java service as a backend in linux</li>
         </li>
+    </ol>
+
+<h2>Procedure</h2>
