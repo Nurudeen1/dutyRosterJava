@@ -1,18 +1,22 @@
-package com.dutyroster;
-import java.util.Timer;
-import java.util.TimerTask;
-
-/**
- * Hello world!
- *
- */
-
+import java.sql.*;
 public class App 
 {
     public static void main( String[] args )
     {
-        ScheduledTask taskToRun = new ScheduledTask();
-        Timer taskTimer = new Timer();
-        taskTimer.schedule(taskToRun, 2000, 60000);
+       Connection c =null;
+
+       try{
+            //Class.forName("org.sqlite.JDBC");
+           String path = "/Users/mohammedabdulai/Documents/Project/dutyRosterJava/app/src/main/App.db";
+           c = DriverManager.getConnection(path);
+
+           System.out.print("successful");
+       }
+       catch(Exception e){
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+
+       }
+       
     }
 }
