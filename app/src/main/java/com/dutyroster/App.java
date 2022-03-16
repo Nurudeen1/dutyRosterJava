@@ -1,20 +1,22 @@
 package com.dutyroster;
 
-import java.sql.*;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-public class App {
-    public static void main(String[] args) {
-        Connection c = null;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
-        try {
-            Class.forName("org.sqlite.JDBC");
-            String path = "jdbc:sqlite:/Users/anino1996/Java/dutyRoster/test.db";
-            c = DriverManager.getConnection(path);
+public class App implements RequestHandler<Map<String,String>, Void> {
 
-            System.out.print("successful");
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
+
+
+    @Override
+    public Void handleRequest(Map<String,String> event, Context context) {
+        Sms mm = new Sms();
+        mm.sendMessage();
+        return null;
     }
 }
+
+
