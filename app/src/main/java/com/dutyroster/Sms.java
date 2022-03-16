@@ -16,10 +16,11 @@ public class Sms {
             public void sendMessage(){
                 DynamoDbConnection connection = new DynamoDbConnection();
 
-                //String phone = db.whoIsIncharge().getPhone();
-                String phone = "7577526127";
+
+
                 Member mem = connection.getMemberById(DutyCalculator.calc(connection.getMemberSize()));
                 String name = mem.getName();
+                String phone = mem.getPhone();
                 System.out.println(phone);
 
                 Twilio.init(TwilioCred.getAccountSid(),TwilioCred.getAuthToken());
